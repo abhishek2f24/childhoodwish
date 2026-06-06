@@ -66,7 +66,8 @@ export function generateStaticParams() {
   return VALID_OCCASIONS.map((occasion) => ({ occasion }));
 }
 
-export async function generateMetadata({ params }: { params: { occasion: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ occasion: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const occasion = params.occasion.toLowerCase();
   const config = occasionConfig[occasion];
 
@@ -83,7 +84,8 @@ export async function generateMetadata({ params }: { params: { occasion: string 
   };
 }
 
-export default async function OccasionPage({ params }: { params: { occasion: string } }) {
+export default async function OccasionPage(props: { params: Promise<{ occasion: string }> }) {
+  const params = await props.params;
   const occasion = params.occasion.toLowerCase();
   const config = occasionConfig[occasion];
 

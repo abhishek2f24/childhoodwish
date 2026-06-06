@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     // Supabase webhook payload
     // Revalidate the 'products' tag whenever there is an insert/update/delete in the products table
     if (body.table === 'products') {
-      revalidateTag('products');
+      revalidateTag('products', 'default');
       return NextResponse.json({ revalidated: true, now: Date.now() });
     }
 
