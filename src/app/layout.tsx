@@ -83,7 +83,7 @@ export default function RootLayout({
         <WhatsAppButton />
         <Analytics />
         <SpeedInsights />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-M2XM6302GV'} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-VTF35ZVZME'} />
       </body>
     </html>
   );
