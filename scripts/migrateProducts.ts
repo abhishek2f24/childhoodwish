@@ -1,6 +1,6 @@
 // scripts/migrateProducts.ts
 import { createClient } from '@supabase/supabase-js';
-import { products } from './extracted_products.ts';
+import { products } from './extracted_products';
 import * as dotenv from 'dotenv';
 
 // Load env vars
