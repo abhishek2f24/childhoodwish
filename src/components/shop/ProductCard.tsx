@@ -26,12 +26,20 @@ export function ProductCard({ product }: ProductCardProps) {
     <div className={cn('card group overflow-hidden flex flex-col h-full')}>
       {/* Image */}
       <Link href={product.isGiftBox ? `/gift-boxes/${product.slug}` : `/product/${product.slug}`} className="block">
-        <div className="aspect-square bg-gradient-to-br from-cream to-cream-dark relative overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
-              {categoryEmoji[product.category] || '🎁'}
-            </span>
-          </div>
+        <div className="aspect-square bg-gradient-to-br from-cream to-cream-dark relative overflow-hidden flex items-center justify-center">
+          {product.images && product.images.length > 0 ? (
+            <img
+              src={product.images[0]}
+              alt={product.name}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
+                {categoryEmoji[product.category] || '🎁'}
+              </span>
+            </div>
+          )}
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-1">
             {product.originalPrice && (

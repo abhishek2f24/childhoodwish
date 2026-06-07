@@ -54,15 +54,23 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
               >
                 {/* Product Image */}
                 <Link href={`/product/${product.slug}`} className="block">
-                  <div className="aspect-square bg-gradient-to-br from-cream to-cream-dark relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
-                        {product.category === 'toys-games' && '🎮'}
-                        {product.category === 'nostalgic-stationery' && '📚'}
-                        {product.category === 'sports' && '🏏'}
-                        {product.category === 'gift-boxes' && '🎁'}
-                      </span>
-                    </div>
+                  <div className="aspect-square bg-gradient-to-br from-cream to-cream-dark relative overflow-hidden flex items-center justify-center">
+                    {product.images && product.images.length > 0 ? (
+                      <img
+                        src={product.images[0]}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
+                          {product.category === 'toys-games' && '🎮'}
+                          {product.category === 'nostalgic-stationery' && '📚'}
+                          {product.category === 'sports' && '🏏'}
+                          {product.category === 'gift-boxes' && '🎁'}
+                        </span>
+                      </div>
+                    )}
                     {product.originalPrice && (
                       <div className="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">
                         Save {Math.round((1 - product.price / product.originalPrice) * 100)}%
