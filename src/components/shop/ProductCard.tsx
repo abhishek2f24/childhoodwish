@@ -12,7 +12,8 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
-  const isInCart = useCartStore((s) => s.isInCart(product.id));
+  const cartItem = useCartStore((s) => s.items.find((i) => i.product.id === product.id));
+  const quantity = cartItem?.quantity || 0;
 
   const categoryEmoji: Record<string, string> = {
     'toys-games': '🎮',
@@ -86,13 +87,13 @@ export function ProductCard({ product }: ProductCardProps) {
               id={`product-card-add-${product.id}`}
               className={cn(
                 'flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold transition-all duration-200',
-                isInCart
+                quantity > 0
                   ? 'bg-green-100 text-green-700 hover:bg-green-200'
                   : 'bg-primary text-white hover:bg-primary-dark'
               )}
             >
               <ShoppingCart className="w-4 h-4" />
-              {isInCart ? 'Added' : 'Add'}
+              {quantity > 0 ? `Added (${quantity})` : 'Add'}
             </button>
           ) : (
             <span className="text-xs text-muted">Notify me</span>

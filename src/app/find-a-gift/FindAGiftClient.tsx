@@ -19,6 +19,7 @@ export default function FindAGiftClient({ products }: FindAGiftClientProps) {
   const [selectedOptions, setSelectedOptions] = useState<string | string[]>('');
   const [showResults, setShowResults] = useState(false);
   const [recommendedIds, setRecommendedIds] = useState<string[]>([]);
+  const items = useCartStore((s) => s.items);
   const addItem = useCartStore((s) => s.addItem);
 
   const question = QUIZ_QUESTIONS[currentStep];
@@ -78,6 +79,9 @@ export default function FindAGiftClient({ products }: FindAGiftClientProps) {
   const altProducts = recommendedProducts.slice(1);
 
   if (showResults) {
+    const heroCartItem = items.find((i) => i.product.id === heroProduct?.id);
+    const heroQuantity = heroCartItem?.quantity || 0;
+
     return (
       <div className="pt-16 min-h-screen bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
@@ -114,8 +118,15 @@ export default function FindAGiftClient({ products }: FindAGiftClientProps) {
                   <p className="font-caveat text-secondary italic text-lg mb-4">{heroProduct.memoryHook}</p>
                   <div className="text-3xl font-bold text-dark mb-6">{formatPrice(heroProduct.price)}</div>
                   <div className="flex gap-3">
-                    <button onClick={() => addItem(heroProduct)} className="btn-primary">
-                      <ShoppingCart className="w-5 h-5" /> Add to Cart
+                    <button
+                      onClick={() => addItem(heroProduct)}
+                      className={cn(
+                        "btn-primary flex items-center justify-center gap-2 transition-all duration-200",
+                        heroQuantity > 0 ? "bg-green-600 hover:bg-green-700" : ""
+                      )}
+                    >
+                      <ShoppingCart className="w-5 h-5" /> 
+                      {heroQuantity > 0 ? `Added (${heroQuantity})` : 'Add to Cart'}
                     </button>
                     <Link href={`/product/${heroProduct.slug}`} className="btn-outline">
                       View details
@@ -130,27 +141,38 @@ export default function FindAGiftClient({ products }: FindAGiftClientProps) {
             <div>
               <h3 className="font-fraunces text-xl font-bold text-dark mb-4">Alternatives you might love</h3>
               <div className="grid md:grid-cols-2 gap-4">
-                {altProducts.map((p) => (
-                  <motion.div
-                    key={p.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="card p-4 flex gap-4 items-center"
-                  >
-                    <div className="w-16 h-16 bg-cream rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-3xl">
-                        {p.category === 'toys-games' ? '🎮' : p.category === 'gift-boxes' ? '🎁' : '🏏'}
-                      </span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="font-fraunces font-bold text-dark truncate">{p.name}</h4>
-                      <p className="text-sm text-muted">{formatPrice(p.price)}</p>
-                    </div>
-                    <button onClick={() => addItem(p)} className="btn-primary text-sm px-3 py-2 flex-shrink-0">
-                      Add
-                    </button>
-                  </motion.div>
-                ))}
+                {altProducts.map((p) => {
+                  const cartItem = items.find((i) => i.product.id === p.id);
+                  const quantity = cartItem?.quantity || 0;
+
+                  return (
+                    <motion.div
+                      key={p.id}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="card p-4 flex gap-4 items-center"
+                    >
+                      <div className="w-16 h-16 bg-cream rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span className="text-3xl">
+                          {p.category === 'toys-games' ? '🎮' : p.category === 'gift-boxes' ? '🎁' : '🏏'}
+                        </span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-fraunces font-bold text-dark truncate">{p.name}</h4>
+                        <p className="text-sm text-muted">{formatPrice(p.price)}</p>
+                      </div>
+                      <button
+                        onClick={() => addItem(p)}
+                        className={cn(
+                          "btn-primary text-sm px-3 py-2 flex-shrink-0 flex items-center gap-1.5 transition-all duration-200",
+                          quantity > 0 ? "bg-green-600 hover:bg-green-700" : ""
+                        )}
+                      >
+                        {quantity > 0 ? `Added (${quantity})` : 'Add'}
+                      </button>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           )}
