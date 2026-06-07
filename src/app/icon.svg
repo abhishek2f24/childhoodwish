@@ -1,0 +1,55 @@
+<svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gold Gradient -->
+    <linearGradient id="icon-gold" x1="10" y1="10" x2="90" y2="90">
+      <stop offset="0%" stop-color="#FCEBB6"/>
+      <stop offset="30%" stop-color="#E8C36E"/>
+      <stop offset="70%" stop-color="#C6933A"/>
+      <stop offset="100%" stop-color="#B07E2A"/>
+    </linearGradient>
+    <linearGradient id="icon-plane" x1="75" y1="20" x2="95" y2="40">
+      <stop offset="0%" stop-color="#FCEBB6"/>
+      <stop offset="50%" stop-color="#E8C36E"/>
+      <stop offset="100%" stop-color="#C6933A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Golden Swoosh (Heart Trail) scaled to fit 100x100 viewBox -->
+  <!-- Swoosh tail -->
+  <path
+    d="M 10 75 C 22 75, 30 78, 42 85"
+    stroke="url(#icon-gold)"
+    stroke-width="5"
+    stroke-linecap="round"
+    fill="none"/>
+
+  <!-- Distinct Heart Shape -->
+  <path
+    d="M 42 45
+       C 35 28, 20 28, 20 50
+       C 20 67, 33 72, 42 85
+       C 51 72, 64 67, 64 50
+       C 64 28, 49 28, 42 45"
+    stroke="url(#icon-gold)"
+    stroke-width="5"
+    stroke-linecap="round"
+    fill="none"/>
+
+  <!-- Flight trail extension -->
+  <path
+    d="M 64 50 C 73 51, 82 54, 88 50"
+    stroke="url(#icon-gold)"
+    stroke-width="5"
+    stroke-linecap="round"
+    fill="none"/>
+
+  <!-- Golden Paper Airplane -->
+  <g transform="translate(88, 42) scale(0.35)">
+    <!-- Back shadow flap -->
+    <path d="M0 20 L65 0 L20 40 Z" fill="#B07E2A" />
+    <!-- Main Wing (Bright Gold) -->
+    <path d="M0 20 L65 0 L15 25 Z" fill="url(#icon-plane)" />
+    <!-- Folds & Shading -->
+    <path d="M15 25 L65 0 L20 40 Z" fill="#D4A84F" opacity="0.9" />
+  </g>
+</svg>
