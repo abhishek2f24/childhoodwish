@@ -38,12 +38,12 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white text-lg">🎁</span>
+          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
+            <div className="w-9 h-9 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+              <img src="/logo.svg" alt="ChildhoodWish Logo" className="w-full h-full" />
             </div>
-            <span className="font-fraunces font-bold text-xl text-dark">
-              ChildhoodWish
+            <span className="font-fraunces font-bold text-xl text-dark tracking-tight">
+              Childhood<span className="text-primary">Wish</span>
             </span>
           </Link>
 

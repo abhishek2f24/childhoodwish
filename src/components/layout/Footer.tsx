@@ -40,11 +40,13 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white text-lg">🎁</span>
+            <div className="flex items-center gap-2.5 mb-4 group">
+              <div className="w-9 h-9 flex items-center justify-center">
+                <img src="/logo.svg" alt="ChildhoodWish Logo" className="w-full h-full brightness-0 invert" />
               </div>
-              <span className="font-fraunces font-bold text-xl">ChildhoodWish</span>
+              <span className="font-fraunces font-bold text-xl text-white tracking-tight">
+                Childhood<span className="text-primary">Wish</span>
+              </span>
             </div>
             <p className="font-caveat text-lg text-accent italic mb-2">"Because some wishes never expire"</p>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
