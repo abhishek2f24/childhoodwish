@@ -22,7 +22,7 @@ export function HeroSection() {
               className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold text-sm px-4 py-2 rounded-full mb-6"
             >
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              India's Nostalgia Gifting Company
+              ✨ For every wish that waited.
             </div>
 
             <h1
