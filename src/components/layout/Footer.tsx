@@ -40,14 +40,9 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="col-span-2">
-            <div className="flex items-center gap-2.5 mb-4 group">
-              <div className="w-9 h-9 flex items-center justify-center">
-                <img src="/logo.svg" alt="ChildhoodWish Logo" className="w-full h-full brightness-0 invert" />
-              </div>
-              <span className="font-fraunces font-bold text-xl text-white tracking-tight">
-                Childhood<span className="text-primary">Wish</span>
-              </span>
-            </div>
+            <Link href="/" className="flex items-center mb-4 group">
+              <img src="/logo.svg" alt="ChildhoodWish Logo" className="h-14 w-auto brightness-0 invert transition-transform duration-200 group-hover:scale-[1.02]" />
+            </Link>
             <p className="font-caveat text-lg text-accent italic mb-2">"Because some wishes never expire"</p>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               India's nostalgia gifting company. We curate gifts that unlock childhood memories — because you deserve that feeling, finally.

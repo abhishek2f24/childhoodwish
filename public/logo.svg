@@ -1,15 +1,93 @@
-<svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Heart-shaped stardust trail -->
-  <path d="M15 80C25 70 35 50 50 50C62 50 72 58 68 70C64 82 48 82 44 70C40 58 55 42 85 25" stroke="#E8532A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
-  <!-- Sparkles -->
-  <circle cx="28" cy="62" r="2.5" fill="#E6A124" />
-  <circle cx="58" cy="42" r="1.5" fill="#E6A124" />
-  
-  <!-- Minimalist Golden Paper Airplane -->
-  <!-- Main Wing -->
-  <path d="M85 25L52 38L64 47L85 25Z" fill="#E6A124" />
-  <!-- Bottom shadow fold -->
-  <path d="M85 25L64 47L70 49L85 25Z" fill="#C98818" />
-  <!-- Inside fold -->
-  <path d="M85 25L52 38L70 49L85 25Z" fill="#F0B74D" opacity="0.9" />
+<svg width="100%" height="100%" viewBox="0 0 800 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium Golden Gradient -->
+    <linearGradient id="gold-grad" x1="340" y1="30" x2="685" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FCEBB6"/>
+      <stop offset="30%" stop-color="#E8C36E"/>
+      <stop offset="70%" stop-color="#C6933A"/>
+      <stop offset="100%" stop-color="#B07E2A"/>
+    </linearGradient>
+    <linearGradient id="plane-body-grad" x1="620" y1="55" x2="685" y2="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FCEBB6"/>
+      <stop offset="50%" stop-color="#E8C36E"/>
+      <stop offset="100%" stop-color="#C6933A"/>
+    </linearGradient>
+    <!-- Text Navy Gradient -->
+    <linearGradient id="navy-grad" x1="80" y1="170" x2="720" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B2240"/>
+      <stop offset="100%" stop-color="#1A3B66"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Swoosh (Tail leading into the heart) -->
+  <path
+    d="M 280 110 C 330 112, 380 125, 420 145"
+    stroke="url(#gold-grad)"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    fill="none"/>
+
+  <!-- Distinct, Beautiful Heart Shape -->
+  <path
+    d="M 420 65
+       C 395 30, 340 30, 340 75
+       C 340 110, 390 120, 420 145
+       C 450 120, 500 110, 500 75
+       C 500 30, 445 30, 420 65"
+    stroke="url(#gold-grad)"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    fill="none"/>
+
+  <!-- Flight trail extension leading to the plane -->
+  <path
+    d="M 500 75 C 545 78, 585 85, 620 78"
+    stroke="url(#gold-grad)"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    fill="none"/>
+
+  <!-- Magic Sparkles -->
+  <g fill="#D4A84F" opacity="0.85">
+    <path d="M542 38 L544 42 L548 43 L544 44 L542 48 L540 44 L536 43 L540 42 Z"/>
+    <path d="M578 28 L580 32 L584 33 L580 34 L578 38 L576 34 L572 33 L576 32 Z"/>
+    <path d="M608 108 L610 111 L613 112 L610 113 L608 116 L606 113 L603 112 L606 111 Z"/>
+  </g>
+
+  <!-- Golden Paper Airplane -->
+  <g transform="translate(620, 55)">
+    <!-- Back shadow flap -->
+    <path d="M0 20 L65 0 L20 40 Z" fill="#B07E2A" />
+    <!-- Main Wing (Bright Gold) -->
+    <path d="M0 20 L65 0 L15 25 Z" fill="url(#plane-body-grad)" />
+    <!-- Folds & Shading -->
+    <path d="M15 25 L65 0 L20 40 Z" fill="#D4A84F" opacity="0.9" />
+    <path d="M20 40 L32 18" stroke="#B8872F" stroke-width="1.5"/>
+  </g>
+
+  <!-- Brand Typography using system loaded serif (Fraunces) -->
+  <text
+    x="400"
+    y="170"
+    font-family="var(--font-fraunces), Cormorant Garamond, Georgia, serif"
+    font-size="82"
+    font-weight="700"
+    letter-spacing="-1.5"
+    fill="url(#navy-grad)"
+    text-anchor="middle">
+    ChildhoodWish
+  </text>
+
+  <!-- Tagline -->
+  <text
+    x="400"
+    y="208"
+    font-family="var(--font-dm-sans), Inter, Arial, sans-serif"
+    font-size="15"
+    font-weight="600"
+    letter-spacing="5.5"
+    fill="#829AB1"
+    text-anchor="middle">
+    BECAUSE SOME WISHES NEVER EXPIRE
+  </text>
 </svg>
