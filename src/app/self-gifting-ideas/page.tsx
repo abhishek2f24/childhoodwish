@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Self Gifting Ideas: Fulfill Your Childhood Dreams',
   description: 'Healing your inner child is powerful. Treat yourself to the premium childhood toys, games, and items you always wanted growing up but never got.',
   alternates: {
-    canonical: 'https://childhoodwish.in/self-gifting-ideas',
+    canonical: 'https://www.childhoodwish.in/self-gifting-ideas',
   },
 };
 

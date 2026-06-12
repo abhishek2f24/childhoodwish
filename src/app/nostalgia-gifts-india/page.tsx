@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Top Nostalgia Gifts in India: Revisit Your Childhood',
   description: 'Shop the best nostalgia gifts in India. We curate premium vintage toys, retro games, and 90s childhood memories perfect for gifting.',
   alternates: {
-    canonical: 'https://childhoodwish.in/nostalgia-gifts-india',
+    canonical: 'https://www.childhoodwish.in/nostalgia-gifts-india',
   },
 };
 

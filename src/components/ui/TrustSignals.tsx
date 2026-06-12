@@ -1,8 +1,8 @@
-import { ShieldCheck, Truck, RefreshCw, Clock } from 'lucide-react';
+import { Banknote, Truck, RefreshCw, Clock } from 'lucide-react';
 
 export function TrustSignals() {
   const signals = [
-    { icon: ShieldCheck, title: 'Secure Checkout', desc: '100% secure Razorpay payments' },
+    { icon: Banknote, title: 'Cash on Delivery', desc: 'Pay only when your gift arrives' },
     { icon: Truck, title: 'Fast Shipping', desc: 'Dispatch within 24-48 hours' },
     { icon: RefreshCw, title: '7-Day Returns', desc: 'Hassle-free replacement policy' },
     { icon: Clock, title: 'Support', desc: 'Active WhatsApp & Email support' },

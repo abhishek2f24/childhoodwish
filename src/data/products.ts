@@ -1,24 +1,37 @@
 import { Product } from '@/types';
 import { supabase } from '@/lib/supabase';
+import { fallbackProducts } from './fallbackProducts';
 
-// Fetch all products from Supabase with ISR tagging
+// Fetch all products from Supabase with ISR tagging.
+// If the DB is unreachable or the table is empty (it was found wiped once),
+// serve the bundled catalog so the storefront never goes blank.
 export async function getAllProducts(): Promise<Product[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/products?select=*`, {
-    headers: {
-      apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || '',
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || ''}`,
-    },
-    next: { tags: ['products'] }, // On-demand revalidation tag
-  });
-  
+  let res: Response;
+  try {
+    res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/products?select=*`, {
+      headers: {
+        apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || '',
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY || ''}`,
+      },
+      next: { tags: ['products'] }, // On-demand revalidation tag
+    });
+  } catch (err) {
+    console.error('Products fetch failed, using bundled catalog:', err);
+    return fallbackProducts;
+  }
+
   if (!res.ok) {
     const errorText = await res.text();
-    console.error('Failed to fetch products from Supabase:', res.status, errorText);
-    return [];
+    console.error('Failed to fetch products from Supabase, using bundled catalog:', res.status, errorText);
+    return fallbackProducts;
   }
-  
+
   const data = await res.json();
-  
+
+  if (!Array.isArray(data) || data.length === 0) {
+    return fallbackProducts;
+  }
+
   // Map snake_case DB columns back to camelCase frontend types
   return (data || []).map((p: any) => ({
     id: p.id,

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Childhood Toys We Always Wanted But Never Got',
   description: 'A nostalgic trip down memory lane looking at the most desired childhood toys of the 90s and 2000s in India. Shop the ones you missed out on!',
   alternates: {
-    canonical: 'https://childhoodwish.in/childhood-toys-we-always-wanted',
+    canonical: 'https://www.childhoodwish.in/childhood-toys-we-always-wanted',
   },
 };
 

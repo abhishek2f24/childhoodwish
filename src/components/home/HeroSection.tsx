@@ -60,7 +60,7 @@ export function HeroSection() {
               {[
                 { emoji: '✍️', text: 'Handwritten note in every order' },
                 { emoji: '📦', text: 'Shipped in 3–7 days' },
-                { emoji: '❤️', text: '500+ wishes fulfilled' },
+                { emoji: '💵', text: 'Cash on Delivery available' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2">
                   <span className="text-lg">{item.emoji}</span>

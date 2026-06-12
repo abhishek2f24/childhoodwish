@@ -39,12 +39,12 @@ export default async function ProductPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
-    image: [`https://childhoodwish.in${product.images[0]}`],
+    image: [`https://www.childhoodwish.in${product.images[0]}`],
     description: product.description,
     sku: product.id,
     offers: {
       '@type': 'Offer',
-      url: `https://childhoodwish.in/product/${product.slug}`,
+      url: `https://www.childhoodwish.in/product/${product.slug}`,
       priceCurrency: 'INR',
       price: product.price,
       availability: 'https://schema.org/InStock',
@@ -59,9 +59,9 @@ export default async function ProductPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://childhoodwish.in' },
-      { '@type': 'ListItem', position: 2, name: 'Shop', item: 'https://childhoodwish.in/shop' },
-      { '@type': 'ListItem', position: 3, name: product.name, item: `https://childhoodwish.in/product/${product.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.childhoodwish.in' },
+      { '@type': 'ListItem', position: 2, name: 'Shop', item: 'https://www.childhoodwish.in/shop' },
+      { '@type': 'ListItem', position: 3, name: product.name, item: `https://www.childhoodwish.in/product/${product.slug}` },
     ],
   };
 
