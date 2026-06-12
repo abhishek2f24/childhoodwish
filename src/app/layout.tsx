@@ -7,6 +7,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppButton } from '@/components/layout/WhatsAppButton';
+import { SITE_URL, resolveGaId } from '@/lib/site';
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -28,14 +29,14 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://childhoodwish.in'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'ChildhoodWish — Because some wishes never expire',
     template: '%s | ChildhoodWish',
   },
   description: "India's nostalgia gifting company. Curated gifts that unlock childhood memories — for birthdays, self-gifting, and every occasion that deserves something real.",
   keywords: ['nostalgia gifts India', 'childhood gifts', '90s kids gifts', 'retro toys India', 'gift boxes India', 'meaningful gifts'],
-  authors: [{ name: 'Abhishek', url: 'https://childhoodwish.in' }],
+  authors: [{ name: 'Abhishek', url: SITE_URL }],
   creator: 'ChildhoodWish',
   publisher: 'ChildhoodWish',
   alternates: {
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://childhoodwish.in',
+    url: SITE_URL,
     title: 'ChildhoodWish — Because some wishes never expire',
     description: "India's nostalgia gifting company. Your childhood wish, finally fulfilled.",
     siteName: 'ChildhoodWish',
@@ -83,7 +84,7 @@ export default function RootLayout({
         <WhatsAppButton />
         <Analytics />
         <SpeedInsights />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-VTF35ZVZME'} />
+        <GoogleAnalytics gaId={resolveGaId()} />
       </body>
     </html>
   );

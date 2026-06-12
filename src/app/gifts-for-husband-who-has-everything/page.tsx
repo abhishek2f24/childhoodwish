@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Gifts for Husband Who Has Everything | ChildhoodWish',
   description: 'Struggling to find a gift for your husband? Surprise him with the childhood toys and memories he always wanted but never got.',
   alternates: {
-    canonical: 'https://childhoodwish.in/gifts-for-husband-who-has-everything',
+    canonical: 'https://www.childhoodwish.in/gifts-for-husband-who-has-everything',
   },
 };
 

@@ -79,7 +79,7 @@ export async function generateMetadata(props: { params: Promise<{ occasion: stri
     title: `${config.title} — Nostalgic Toys & Memories | ChildhoodWish`,
     description: config.subtext,
     alternates: {
-      canonical: `https://childhoodwish.in/for/${occasion}`,
+      canonical: `https://www.childhoodwish.in/for/${occasion}`,
     },
   };
 }

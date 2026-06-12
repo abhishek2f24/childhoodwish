@@ -151,7 +151,7 @@ export async function sendAbandonedCartEmail(
         <h1 style="color: #E8532A;">ChildhoodWish</h1>
         <p>You left something behind...</p>
         <p><strong>${itemNames}</strong> — worth ₹${total.toLocaleString('en-IN')} — is sitting in your cart, waiting to finally come home.</p>
-        <a href="https://childhoodwish.in/cart" style="display: inline-block; background: #E8532A; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 16px;">Complete Your Order →</a>
+        <a href="https://www.childhoodwish.in/cart" style="display: inline-block; background: #E8532A; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 16px;">Complete Your Order →</a>
         <p style="color: #6B7280; font-size: 12px; margin-top: 24px;">You're receiving this because you started checkout on ChildhoodWish.in.</p>
       </div>
     `,

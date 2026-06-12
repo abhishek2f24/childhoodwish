@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, Flame } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -46,6 +46,30 @@ export default function MemoryWallPage() {
   const [email, setEmail] = useState('');
   const [emailSent, setEmailSent] = useState(false);
   const [wishes, setWishes] = useState(sampleWishes);
+
+  // Show real community submissions ahead of the seeded samples
+  useEffect(() => {
+    fetch('/api/memory-wall?limit=50')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        const real = (data?.submissions || [])
+          .filter((s: { wish?: string }) => s.wish?.trim())
+          .map((s: { wish: string; decade?: string }) => ({
+            text: s.wish,
+            decade: s.decade || '90s',
+            popular: false,
+          }));
+        if (real.length > 0) {
+          setWishes((prev) => {
+            const seen = new Set(real.map((w: { text: string }) => w.text.toLowerCase()));
+            return [...real, ...prev.filter((w) => !seen.has(w.text.toLowerCase()))];
+          });
+        }
+      })
+      .catch(() => {
+        // keep showing samples if the fetch fails
+      });
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

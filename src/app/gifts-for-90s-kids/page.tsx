@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: '15 Best Gifts for 90s Kids in India (2024)',
   description: 'Looking for the ultimate nostalgic gift for a 90s kid? Explore our curated collection of retro toys, 90s nostalgia items, and childhood memories.',
   alternates: {
-    canonical: 'https://childhoodwish.in/gifts-for-90s-kids',
+    canonical: 'https://www.childhoodwish.in/gifts-for-90s-kids',
   },
 };
 
